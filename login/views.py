@@ -6,3 +6,8 @@ def say_hello(request):
     # return HttpResponse('Hello World')
 
     return render(request,'hello.html', {'name' : 'Daniella'})
+
+def login(request):
+    # return HttpResponse('Hello World')
+
+    return render(request,'login/login.html')
