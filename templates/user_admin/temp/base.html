@@ -1,93 +1,123 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin | PSUCCESS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="PSUCCESS" name="" />
+    <meta content="PSUCCCESS" name="author" />
+    <!-- App favicon -->
 
-<head>
+    <!-- App favicon -->
+    <link
+      rel="shortcut icon"
+      href="{% static 'assets' %}/images/psuccess/pssucess_logo/psuccess-logo.png"
+    />
 
-  <meta charset="utf-8" />
-  <title>Admin | PSUCCESS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="PSUCCESS" name="" />
-  <meta content="PSUCCCESS" name="author" />
-  <!-- App favicon -->
+    <!-- select 2 -->
+    <link
+      href="{% static 'assets' %}/libs/select2/css/select2.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  <!-- App favicon -->
-    <link rel="shortcut icon" href="{% static 'assets' %}/images/psuccess/pssucess_logo/psuccess-logo.png">
+    <!-- date -->
+    <link
+      href="{% static 'assets' %}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets' %}/libs/@chenfengyuan/datepicker/datepicker.min.css"
+    />
 
-  <!-- select 2 -->
-  <link href="{% static 'assets' %}/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link
+      href="{% static 'assets' %}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Bootstrap Css -->
+    <link
+      href="{% static 'assets' %}/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link
+      href="{% static 'assets' %}/css/icons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- App Css-->
+    <link
+      href="{% static 'assets' %}/css/app.min.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  <!-- date -->
-  <link href="{% static 'assets' %}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static 'assets' %}/libs/@chenfengyuan/datepicker/datepicker.min.css">
+    <!-- DataTables -->
+    <link
+      href="{% static 'assets' %}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'assets' %}/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
 
-  <!-- Responsive datatable examples -->
-  <link href="{% static 'assets' %}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
-  <!-- Bootstrap Css -->
-  <link href="{% static 'assets' %}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-  <!-- Icons Css -->
-  <link href="{% static 'assets' %}/css/icons.min.css" rel="stylesheet" type="text/css" />
-  <!-- App Css-->
-  <link href="{% static 'assets' %}/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+  <body data-sidebar="light">
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
-
-  <!-- DataTables -->
-  <link href="{% static 'assets' %}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-  <link href="{% static 'assets' %}/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-</head>
-
-
-<body data-sidebar="light">
-
-<!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
-  <div id="layout-wrapper">
-
+    <div id="layout-wrapper">
       <!-- header Nav -->
       {% include 'user_admin/temp/_headNav.html' %}
 
+      <!-- header Nav -->
       {% include 'user_admin/temp/_sidebar.html' %}
 
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
-<div class="main-content">
-
-    <div class="page-content">
-        <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
             <!-- create a body block-->
-            {% block content %}
+            {% block content %} {% endblock content %}
+          </div>
+          <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
 
-
-            {% endblock content %}
-        </div> <!-- container-fluid -->
+        {% include "user_admin/temp/footer.html" %}
+      </div>
+      <!-- end main content-->
     </div>
-    <!-- End Page-content -->
+    <!-- END layout-wrapper -->
+    <!-- JAVASCRIPT -->
+    <script src=" {% static 'assets' %}/libs/jquery/jquery.min.js"></script>
+    <script src=" {% static 'assets' %}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src=" {% static 'assets' %}/libs/metismenu/metisMenu.min.js"></script>
+    <script src=" {% static 'assets' %}/libs/simplebar/simplebar.min.js"></script>
+    <script src=" {% static 'assets' %}/libs/node-waves/waves.min.js"></script>
 
-{% include "user_admin/temp/footer.html" %}
-</div>
-<!-- end main content-->
-
-</div>
-<!-- END layout-wrapper -->
-<!-- JAVASCRIPT -->
-<script src=" {% static 'assets' %}/libs/jquery/jquery.min.js"></script>
-<script src=" {% static 'assets' %}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src=" {% static 'assets' %}/libs/metismenu/metisMenu.min.js"></script>
-<script src=" {% static 'assets' %}/libs/simplebar/simplebar.min.js"></script>
-<script src=" {% static 'assets' %}/libs/node-waves/waves.min.js"></script>
-
-<!-- select 2 -->
-<script src="{% static 'assets' %}/libs/select2/js/select2.min.js"></script>
-<!-- app js -->
-<script src=" {% static 'assets' %}/js/app.js"></script>
-  <script>
-        $(".select2").select2({
-            theme: "bootstrap4",
-            dropdownParent: $("#edit_information"),
-        });
+    <!-- select 2 -->
+    <script src="{% static 'assets' %}/libs/select2/js/select2.min.js"></script>
+    <!-- app js -->
+    <script src=" {% static 'assets' %}/js/app.js"></script>
+    <script>
+      $(".select2").select2({
+        theme: "bootstrap4",
+        dropdownParent: $("#edit_information"),
+      });
     </script>
-</body>
-
-
+    <script src="{% static 'assets' %}/js/user_admin/event_types.js"></script>
+  </body>
 </html>

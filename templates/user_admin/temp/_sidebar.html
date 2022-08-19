@@ -1,96 +1,98 @@
-    {% load static %}
+{% load static %}
 
 <!-- ========== Left Sidebar Start ========== -->
-    <div class="vertical-menu">
-{##FFFFC9 #F2ECCE}#}
-      <div data-simplebar class="h-100" >
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-          <!-- Left Menu Start -->
-          <ul class="metismenu list-unstyled" id="side-menu">
-            <li class="menu-title" key="t-menu">Menu</li>
-            <!-- far fa-window-minimize -->
+<div class="vertical-menu">
+  {##FFFFC9 #F2ECCE}#}
+  <div data-simplebar class="h-100">
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+      <!-- Left Menu Start -->
+      <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title" key="t-menu">Menu</li>
+        <!-- far fa-window-minimize -->
+        <li>
+          <a href="/user_admin/" class="waves-effect">
+            <i class="bx bx-home-circle"></i>
+            <span key="t-dashboards">Dashboards</span>
+          </a>
+        </li>
+        <li>
+          <a href="/user_admin/events" class="waves-effect">
+            <i class="bx bxs-user-circle"></i>
+            <span key="t-dashboards">Employee</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript: void(0);" class="waves-effect">
+            <i class="bx bxs-user-rectangle"></i>
+            <span key="t-dashboards">Client</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript: void(0);" class="waves-effect">
+            <i class="bx bx-transfer-alt"></i>
+            <span key="t-dashboards">Transactions</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="bx bxs-detail"></i>
+            <span key="t-layouts">Events</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="true">
             <li>
-              <a href="/user_admin/" class="waves-effect">
+              <a href="/user_admin/events_type" class="waves-effect">
+                <i class="bx bx-detail"></i>
+                <span key="t-dashboards">Events</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="waves-effect">
                 <i class="bx bx-home-circle"></i>
-                <span key="t-dashboards">Dashboards</span>
+                <span key="t-dashboards"> NULL</span>
               </a>
             </li>
-            <li>
-              <a href="/user_admin/events" class="waves-effect">
-                <i class="bx bxs-user-circle"></i>
-                <span key="t-dashboards">Employee</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript: void(0);" class="waves-effect">
-                <i class="bx bxs-user-rectangle"></i>
-                <span key="t-dashboards">Client</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript: void(0);" class="waves-effect">
-                <i class="bx bx-transfer-alt"></i>
-                <span key="t-dashboards">Transactions</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="bx bxs-detail"></i>
-                <span key="t-layouts">Events</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li>
-                  <a href="/user_admin/events_type" class="waves-effect">
-                    <i class="bx bx-detail"></i>
-                    <span key="t-dashboards">Events</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript: void(0);" class="waves-effect">
-                    <i class="bx bx-home-circle"></i>
-                    <span key="t-dashboards"> NULL</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
+          </ul>
+        </li>
 
+        <!-- SYSTEM SETUPS -->
+        <li class="menu-title" key="t-apps">System Setups</li>
 
-            <!-- SYSTEM SETUPS -->
-            <li class="menu-title" key="t-apps">System Setups</li>
-
-
-
-            <!-- Event -->
+        <!-- Event -->
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="fas fa-minus"></i>
+            <span key="t-layouts">Event Setups</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="true">
             <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
+              <a
+                href="<?php echo base_url('SystemSetup/users') ?>"
+                key="t-vertical"
+              >
                 <i class="fas fa-minus"></i>
-                <span key="t-layouts">Event Setups</span>
+                <span key="t-layouts">Event Type </span>
               </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li>
-                  <a href="<?php echo base_url('SystemSetup/users') ?>" key="t-vertical">
-
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Event Type </span>
-                  </a>
-                </li>
-                  <li>
-                  <a href="<?php echo base_url('SystemSetup/users') ?>" key="t-vertical">
-
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Event Category </span>
-                  </a>
-                </li>
-                  <li>
-                  <a href="<?php echo base_url('SystemSetup/users') ?>" key="t-vertical">
-
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Event Tags </span>
-                  </a>
-                </li>
-                  <!--
+            </li>
+            <li>
+              <a
+                href="<?php echo base_url('SystemSetup/users') ?>"
+                key="t-vertical"
+              >
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Event Category </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="<?php echo base_url('SystemSetup/users') ?>"
+                key="t-vertical"
+              >
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Event Tags </span>
+              </a>
+            </li>
+            <!--
                 <li>
                   <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="fas fa-minus"></i>
@@ -103,58 +105,55 @@
                   </ul>
                 </li>
                 -->
-              </ul>
-            </li>
-
-
-            <!-- Membership -->
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="fas fa-minus"></i>
-                <span key="t-layouts">Membership</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow" key="t-vertical">
-
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Setup 1</span></a>
-                </li>
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Setup 1</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            <!-- PSUCCESS Academy  -->
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="fas fa-minus"></i>
-                <span key="t-layouts">PSUCCESS Academy</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow" key="t-vertical">
-
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Setup 1</span></a>
-                </li>
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="fas fa-minus"></i>
-                    <span key="t-layouts">Setup 1</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
           </ul>
-        </div>
-        <!-- Sidebar -->
-      </div>
+        </li>
+
+        <!-- Membership -->
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="fas fa-minus"></i>
+            <span key="t-layouts">Membership</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="true">
+            <li>
+              <a href="javascript: void(0);" class="has-arrow" key="t-vertical">
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Setup 1</span></a
+              >
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Setup 1</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- PSUCCESS Academy  -->
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="fas fa-minus"></i>
+            <span key="t-layouts">PSUCCESS Academy</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="true">
+            <li>
+              <a href="javascript: void(0);" class="has-arrow" key="t-vertical">
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Setup 1</span></a
+              >
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="fas fa-minus"></i>
+                <span key="t-layouts">Setup 1</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    <!-- Left Sidebar End -->
+    <!-- Sidebar -->
+  </div>
+</div>
+<!-- Left Sidebar End -->
