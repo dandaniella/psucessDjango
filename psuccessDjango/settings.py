@@ -54,6 +54,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'psuccessDjango.urls'
 
 TEMPLATES = [
@@ -68,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                "login.custom_context_processor.sessions_data"
             ],
         },
     },
