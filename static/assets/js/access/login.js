@@ -60,12 +60,18 @@ $(function () {
 
           let session_data = "";
           session_data += "token=" + response.data.access_token;
-          session_data += "&user=Admin";
-          // session_data += "&firstName=" + data.data.user_name;
-          // session_data += "&fullName=" + data.data.user_email;
-          // session_data += "&middleName=" + data.data.user_email;
-          // session_data += "&user_type=" + data.data.user_type;
-          // window.location.replace(baseURL + "Access/oAuth?" + session_data);
+          session_data += "&userID" + response.data.userID;
+          session_data += "&email" + response.data.email;
+          session_data += "&firstName" + response.data.firstName;
+          session_data += "&middleName" + response.data.middleName;
+          session_data += "&lastName" + response.data.lastName;
+          session_data += "&fullName" + response.data.fullName;
+          session_data += "&accountType" + response.data.accountType;
+          session_data += "&profilePhoto" + response.data.profilePhoto;
+          session_data += "&transactionID" + response.data.transactionID;
+          session_data +=
+            "&userOrganizationID" + response.data.userOrganizationID;
+
           console.log(session_data);
           window.location.replace(baseURL + "login/auth?" + session_data);
         })

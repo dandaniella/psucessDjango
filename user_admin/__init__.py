@@ -8,4 +8,5 @@ common_urlpattern = [
    
     path('', event_views.dashboard, name="user_admin")
     ]
-urlpatterns = event_urlpatterns + common_urlpattern
+
+urlpatterns = event_urlpatterns + common_urlpattern 

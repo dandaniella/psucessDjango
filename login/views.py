@@ -12,8 +12,17 @@ def auth(request):
     try:
         print("nakadaaan ditttto")
         request.session['TOKEN'] = request.GET.get('token')
-        request.session['USER'] = request.GET.get('user')
-        if(request.session['USER']=="Admin"):
+        request.session['USERID'] = request.GET.get('userID')
+        request.session['EMAIL'] = request.GET.get('email')
+        request.session['FIRSTNAME'] = request.GET.get('firstName')
+        request.session['MIDDLENAME'] = request.GET.get('middleName')
+        request.session['LASTNAME'] = request.GET.get('lastName')
+        request.session['USERID'] = request.GET.get('fullName')
+        request.session['ACCOUNTTYPE'] = request.GET.get('accountType')
+        request.session['PROFILEPHOTO'] = request.GET.get('profilePhoto')
+        request.session['TRANSACTIONID'] = request.GET.get('transactionID')
+        request.session['USERORGANIZATIONID'] = request.GET.get('userOrganizationID')
+        if(request.session['ACCOUNTTYPE']=="Admin"):
             return redirect("/user_admin/")
         else:
             return redirect("/login/")
