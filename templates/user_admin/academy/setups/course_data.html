@@ -1,0 +1,141 @@
+{% extends 'user_admin/temp/base.html' %}
+{% load static %}
+
+    {% block content %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Course Records</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                        <!-- modals modals -->
+                            <div>
+
+                                            <button type="button" class="btn btn-light waves-effect waves-light"
+                                                    data-bs-toggle="modal" data-bs-target="#myModal">
+                                                <i class="bx bx-plus font-size-16 align-middle me-2"></i>Create New
+                                            </button>
+
+                                            <!-- sample modal content -->
+                                            <div class="col-lg-6">
+                                                            <!-- sample modal content -->
+                                                            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title mt-0" id="myModalLabel">Create New Course</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+
+                                                                    <!-- modal body-->
+
+                                                                            <div class="modal-body">
+                                                                                <form class="custom-validation" action="#">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Course Title</label>
+                                                                                        <input type="text" class="form-control" required placeholder="Type something" />
+                                                                                        <div class="invalid-tooltip">
+                                                                                            Please select a valid state.
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Course Description</label>
+                                                                                        <input type="text" class="form-control" required placeholder="Type something" />
+                                                                                        <div class="invalid-tooltip">
+                                                                                            Please select a valid state.
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="mb-3">
+                                                                                        <label for="validationCustom03" class="form-label">Category</label>
+                                                                                        <select class="form-select" id="validationCustom03" required>
+                                                                                            <option selected disabled value="">Select</option>
+                                                                                            <option>Python Course</option>
+                                                                                            <option>PHP Course</option>
+                                                                                        </select>
+                                                                                        <div class="invalid-tooltip">
+                                                                                            Please select a valid state.
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="mt-4">
+                                                                                        <div>
+                                                                                            <label for="formFileSm" class="form-label">Attach photo for course</label>
+                                                                                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="modal-footer">
+                                                                                        <div class="d-flex flex-wrap gap-2">
+                                                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" >
+                                                                                                Submit
+                                                                                            </button>
+                                                                                            <button type="reset" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">
+                                                                                                Cancel
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+
+
+                                                                            </div>
+                                                                        <!-- modal body-->
+
+
+
+                                                                    </div><!-- /.modal-content -->
+
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div><!-- /.modal -->
+                                            </div>
+                                            <!-- end col -->
+                                            <!-- modals modals -->
+
+
+
+                            <div class="table-responsive">
+                                <br><br>
+                                <table id="datatable" class="table table-editable table-nowrap align-middle table-edits table-bordered" style="text-align: center; font-size: 13px">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 300px;">Course Title</th>
+                                            <th style="width: 300px;">Course Description</th>
+                                            <th style="width: 200px;">Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr data-id="1">
+                                            <td data-field="leve_name">David McHenry</td>
+                                            <td data-field="leve_description">David McHenry</td>
+                                            <td>
+                                                <a class="btn btn-outline-success btn-sm edit" title="Edit">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
+                                                <div style="display: inline-block; margin-left: 10px;"></div>
+                                                <button class="btn btn-outline-danger btn-sm delete" title="Delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+            </div>
+
+
+
+
+    {% endblock content %}
