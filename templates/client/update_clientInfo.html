@@ -1,0 +1,82 @@
+{% extends 'client/temp/clientBase.html' %}
+{% load static %}
+
+                {% block content %}
+                <link href="{% static 'assets'%}/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+                <!-- dropzone css -->
+                <link href="{% static 'assets'%}/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+                <!-- ============================================================== -->
+                <!-- Start right Content here -->
+                <!-- ============================================================== -->
+                
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                        <h4 class="mb-sm-0 font-size-18">UPDATE PERSONAL INFORMATION</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+            
+                                            <h3 class="card-title">Edit Personal Information</h3>
+                                            <br>
+            
+                                            <div class="col-12">
+                                                <form class="needs-validation">
+                        
+                                                    <div class="mb-3">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>  
+                                                             
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="firstName" class="form-label">First Name</label>
+                                                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter firstname" required>
+                                                 
+                                                    </div>
+            
+                                                    <div class="mb-3">
+                                                        <label for="lastName" class="form-label">Last Name</label>
+                                                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter lastname" required>
+     
+                                                    </div>
+            
+                                                    <div class="mb-3">
+                                                        <label for="middleName" class="form-label">Middle Name</label>
+                                                        <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Enter middlename" required>
+                                                        
+                                                    </div>
+            
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update Changes</button>
+                                                    <a href="/client/view_clientInfo" class="btn btn-primary waves-effect waves-light">Cancel</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!-- form-2 -->
+            <!-- select 2 plugin -->
+            <script src="{% static 'assets'%}/libs/select2/js/select2.min.js"></script>
+    
+            <!-- dropzone plugin -->
+            <script src="{% static 'assets'%}/libs/dropzone/min/dropzone.min.js"></script>
+    
+            <!-- init js -->
+            <script src="{% static 'assets'%}/js/pages/ecommerce-select2.init.js"></script>
+                    <!-- End Page-content -->
+                <!-- end main content-->
+                {% endblock content %}
+           
+    
+            

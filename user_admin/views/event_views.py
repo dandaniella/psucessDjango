@@ -1,5 +1,7 @@
 # from crypt import methods
-from django.shortcuts import render
+from asyncio.windows_events import NULL
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 
 # import boto3
 
@@ -13,28 +15,40 @@ from django.shortcuts import render
 #         s3.Bucket("psuccess").put_object(Key='a_python_file.py', Body=request.files["myfiles"])
 
 
-def token(request):
+def isAuth(request):
     try:
-        token = request.session['TOKEN']
-        return(True)
+        if request.session['TOKEN'] != "None":
+            return(True)
     except:
-       return render(request,'login/login.html')
+       return(False)
+
+    # try:
+    #     token=request.session['TOKEN'] 
+    #     print(token)
+    #     return(True)
+    # except:
+    #     print("except")
+    #     return redirect("/login/")
 
     
 def dashboard(request):
-    if token(request):
-        print (request.GET.get('message'))
     return render(request, 'user_admin/dashboard.html')
 
 def events(request):
-    return render(request, 'user_admin/events.html')
+    if token(request):
+        return render(request, 'user_admin/events.html')
+    else:
+        return HttpResponse("UNAUTHORIZE ACCESS ")
+
 
 def events_type(request):
-    if request.method == 'POST':
-        data = request.POST
-        image = request.FILES.get('image')
-
-    return render(request, 'user_admin/events/setups/event_type.html')
+    print("hellollllll")
+    if isAuth(request) :
+        return render(request, 'user_admin/events.html')
+    else:
+        return HttpResponse("UNAUTHORIZE ACCESS ")
+    # else:
+    #     return render(request, 'user_admin/events/setups/event_type.html')
 
 
 # EVENT CATEGORY

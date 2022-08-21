@@ -1,0 +1,122 @@
+{% extends 'user_org/temp/orgBase.html' %}
+{% load static %}
+
+                {% block content %}
+                <link href="{% static 'assets'%}/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+                <!-- dropzone css -->
+                <link href="{% static 'assets'%}/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+            
+                      <!-- start page title -->
+                      <div class="row">
+                          <div class="col-12">
+                              <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                  <h4 class="mb-sm-0 font-size-18">Profile</h4>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- end page title -->
+
+                      <div class="row">
+                        <div class="col-sm-8">
+                        <div class="card" >
+                            <div class="card-body">
+                                <div class="col-sm-4">
+                                    <div class="avatar-md profile-user-wid mb-8">
+                                        <img src="{% static 'assets'%}/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
+                                    </div>
+                        
+                                  </div>
+
+                                    <h5 class="font-size-15 text-truncate">Jane Doe</h5>
+                                    <p class="text-muted mb-0 text-truncate">Organizer</p>
+                                </div>
+                                <br>
+                                <h4 class="card-title mb-4">Organization Information</h4>
+                
+                                <p class="text-muted mb-4">Hi I'm Jane Doe,has been the industry's standard dummy text To an English person, it will seem like simplified English, as a skeptical Cambridge.</p>
+                                <div class="table-responsive">
+                                    <table class="table table-nowrap mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Organization Name :</th>
+                                                <td>Example Institute</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Contact :</th>
+                                                <td>(123) 123 1234</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">E-mail :</th>
+                                                <td>exampleinst@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Location :</th>
+                                                <td>California, United States</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                            
+                              <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card card-body">
+                                        <h4 class="card-title mt-0">Account Information</h4>
+                                        <p class="card-text">Update your account information that you use to access your account.</p>
+                                        <a href="/user_org/update_orgInfo" class="btn btn-primary waves-effect waves-light">Update Personal Info</a>
+                                    </div>
+                                </div>
+            
+                                <div class="col-lg-4">
+                                    <div class="card card-body">
+                                        <h4 class="card-title mt-0">Password</h4>
+                                        <p class="card-text">Change the password that you use to access your account.</p>
+                                        <a href="/login/reset_password" class="btn btn-primary waves-effect waves-light">Changes Password</a>
+                                    </div>
+                                </div>
+            
+                                <div class="col-lg-4">
+                                    <div class="card card-body">
+                                        <h4 class="card-title mt-0">Deactivate Account</h4>
+                                        <p class="card-text">Deactivate the account that you use to access PSUCCESS.</p>
+                                        <a href="/user_org/deact_orgAccount" class="btn btn-primary waves-effect waves-light">Deactivate Account</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->      
+            <script>
+                $(document).ready(function(){
+            // Prepare the preview for profile picture
+                $("#wizard-picture").change(function(){
+                    readURL(this);
+                });
+            });
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            </script>
+            <!-- select 2 plugin -->
+            <script src="{% static 'assets'%}/libs/select2/js/select2.min.js"></script>
+    
+            <!-- dropzone plugin -->
+            <script src="{% static 'assets'%}/libs/dropzone/min/dropzone.min.js"></script>
+    
+            <!-- init js -->
+            <script src="{% static 'assets'%}/js/pages/ecommerce-select2.init.js"></script>
+                
+            <!-- profile pic js-->
+            <script src="{% static 'assets'%}/js/profile-pic.js"></script>
+                
+                {% endblock content %}
+           
+    
+            

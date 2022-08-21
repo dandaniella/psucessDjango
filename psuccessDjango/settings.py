@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'login',
     'user_admin',
     'home_page',
+    'user_org', 
+    'client', 
+    'authentication',
 
 ]
 

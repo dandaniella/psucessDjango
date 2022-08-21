@@ -1,0 +1,131 @@
+{% extends 'client/temp/clientBase.html' %}
+{% load static %}
+
+                {% block content %}
+                <link href="{% static 'assets'%}/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+                <!-- dropzone css -->
+                <link href="{% static 'assets'%}/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+            
+                      <!-- start page title -->
+                      <div class="row">
+                          <div class="col-12">
+                              <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                  <h4 class="mb-sm-0 font-size-18">Profile</h4>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- end page title -->
+
+                      <div class="row">
+                        <div class="col-sm-6">
+                              <div class="card overflow-hidden">
+                                  <div class="bg-primary bg-soft">
+                                      <div class="row">
+                                          <div class="col-4">
+                                              <div class="text-primary p-3">
+                                                  <h5 class="text-primary">Welcome Back !</h5>
+    
+                                              </div>
+                                          </div>
+                                          <div class="col-5 align-self-end">
+                                              <img src="{% static 'assets'%}/images/profile-img.png" alt="" class="img-fluid">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="card-body pt-0">
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                              <div class="avatar-md profile-user-wid mb-8">
+                                                  <img src="{% static 'assets'%}/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
+                                              </div>
+                                              <h5 class="font-size-15 text-truncate">Jane Doe</h5>
+                                              <p class="text-muted mb-0 text-truncate">Member</p>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- end card -->
+                              <div class="col-sm-12">
+                              <div class="card" >
+                                  <div class="card-body">
+                                      <h4 class="card-title mb-4">Personal Information</h4>
+
+                                      <p class="text-muted mb-4">Hi I'm Jane Doe,has been the industry's standard dummy text To an English person, it will seem like simplified English, as a skeptical Cambridge.</p>
+                                      <div class="table-responsive">
+                                          <table class="table table-nowrap mb-0">
+                                              <tbody>
+                                                  <tr>
+                                                      <th scope="row">Full Name :</th>
+                                                      <td>Jane Doe</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th scope="row">Contract :</th>
+                                                      <td>(123) 123 1234</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th scope="row">E-mail :</th>
+                                                      <td>janedoe@gmail.com</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <th scope="row">Location :</th>
+                                                      <td>California, United States</td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                  </div>
+                                  </div>
+                              </div>
+                              </div>
+                              <!-- end card -->
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Account Information</h5>
+                                      <p class="card-text">Update your account information that you use to access your account.</p>
+                                        <a href="/client/update_clientInfo" class="btn btn-primary waves-effect waves-light">Update Personal Info</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Password</h5>
+                                      <p class="card-text">Change the password that you use to access your account.</p><br>
+                                      <a href="/authentication/reset_password" class="btn btn-primary waves-effect waves-light">Changes Password</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                  
+                        
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Deactivate Account</h5>
+                                      <p class="card-text">Deactivate the account that you use to access PSUCCESS</p><br>
+                                      <a href="/client/deact_clientAccount" class="btn btn-primary waves-effect waves-light">Deactivate Account</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>               
+            <!-- select 2 plugin -->
+            <script src="{% static 'assets'%}/libs/select2/js/select2.min.js"></script>
+    
+            <!-- dropzone plugin -->
+            <script src="{% static 'assets'%}/libs/dropzone/min/dropzone.min.js"></script>
+    
+            <!-- init js -->
+            <script src="{% static 'assets'%}/js/pages/ecommerce-select2.init.js"></script>
+                    <!-- End Page-content -->
+                <!-- end main content-->
+                {% endblock content %}
+           
+    
+            
