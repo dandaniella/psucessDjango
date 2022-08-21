@@ -1,5 +1,6 @@
 # from crypt import methods
 from django.shortcuts import render
+
 # import boto3
 
 # Create your views here.
@@ -11,7 +12,18 @@ from django.shortcuts import render
 #         s3 = boto3.resource('s3')
 #         s3.Bucket("psuccess").put_object(Key='a_python_file.py', Body=request.files["myfiles"])
 
+
+def token(request):
+    try:
+        token = request.session['TOKEN']
+        return(True)
+    except:
+       return render(request,'login/login.html')
+
+    
 def dashboard(request):
+    if token(request):
+        print (request.GET.get('message'))
     return render(request, 'user_admin/dashboard.html')
 
 def events(request):
@@ -23,8 +35,6 @@ def events_type(request):
         image = request.FILES.get('image')
 
     return render(request, 'user_admin/events/setups/event_type.html')
-
-
 
 
 # EVENT CATEGORY

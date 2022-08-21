@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:5000/psuccess/";
+const apiURL = "http://localhost:5000/psuccess/admin/";
 // const baseURL = "http://localhost/pawnshop1/";
 const baseURL = "http://localhost:8000/";
 

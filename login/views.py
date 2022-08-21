@@ -1,9 +1,24 @@
 from asyncio.windows_events import NULL
 from email import message
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+
+import user_admin
 # Create your views here.
 
+
+def auth(request):
+    try:
+        print("nakadaaan ditttto")
+        request.session['TOKEN'] = request.GET.get('token')
+        request.session['USER'] = request.GET.get('user')
+        if(request.session['USER']=="Admin"):
+            return redirect("/user_admin/")
+        else:
+            return redirect("/login/")
+    except:
+        return HttpResponse('ERROR')
 
 def token(request):
     try:
@@ -13,8 +28,8 @@ def token(request):
        return render(request,'login/login.html')
 
 def say_hello(request):
-    if token(request):
-        print (request.GET.get('message'))
+    # if token(request):
+    #     print (request.GET.get('message'))
     # return HttpResponse('Hello World')
 
     # return render(request,'helloWorld.html', {'name' : 'Daniella'})
