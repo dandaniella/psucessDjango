@@ -25,7 +25,8 @@ def auth(request):
         if(request.session['ACCOUNTTYPE']=="Admin"):
             return redirect("/user_admin/")
         else:
-            return redirect("/login/")
+            # return redirect("/login/")
+            return HttpResponse(request.session['ACCOUNTTYPE'])
     except:
         return HttpResponse('ERROR')
 
@@ -59,12 +60,10 @@ def say_hello(request):
 def login(request):
     # print ( request.session['TOKEN'] )
     request.session.flush()
-    print("wala ng session")
     try:
         print(request.session['TOKEN'])
     except:
-        print ( "no session" )
-    return render(request,'login/login.html')
+       return render(request,'login/login.html')
 
 
 

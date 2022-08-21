@@ -60,15 +60,15 @@ $(function () {
 
           let session_data = "";
           session_data += "token=" + response.data.access_token;
-          session_data += "&userID" + response.data.userID;
-          session_data += "&email" + response.data.email;
-          session_data += "&firstName" + response.data.firstName;
-          session_data += "&middleName" + response.data.middleName;
-          session_data += "&lastName" + response.data.lastName;
-          session_data += "&fullName" + response.data.fullName;
-          session_data += "&accountType" + response.data.accountType;
-          session_data += "&profilePhoto" + response.data.profilePhoto;
-          session_data += "&transactionID" + response.data.transactionID;
+          session_data += "&userID=" + response.data.data.userID;
+          session_data += "&email=" + response.data.data.email;
+          session_data += "&firstName=" + response.data.data.name.firstName;
+          session_data += "&middleName=" + response.data.data.name.middleName;
+          session_data += "&lastName=" + response.data.data.name.lastName;
+          session_data += "&fullName=" + response.data.data.name.fullName;
+          session_data += "&accountType=" + response.data.data.accountType;
+          session_data += "&profilePhoto=" + response.data.data.profilePhoto;
+          session_data += "&transactionID=" + response.data.data.transactionID;
           session_data +=
             "&userOrganizationID" + response.data.userOrganizationID;
 
