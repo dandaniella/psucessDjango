@@ -23,3 +23,10 @@ def events_type(request):
         image = request.FILES.get('image')
 
     return render(request, 'user_admin/events/setups/event_type.html')
+
+
+
+
+# EVENT CATEGORY
+def event_category(request):
+    return render(request, 'user_admin/events/setups/category.html')

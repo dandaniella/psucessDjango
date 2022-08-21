@@ -1,0 +1,194 @@
+{% extends 'user_admin/temp/base.html' %} {% load static %} 
+
+<!-- 
+*****************************************************************
+    block for css in upper header part 
+*****************************************************************
+-->
+{% block headlinks %}
+
+<!-- DataTables -->
+<link href="{% static 'assets' %}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="{% static 'assets' %}/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="{% static 'assets' %}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />   
+
+{% endblock headlinks %}
+
+<!-- 
+*****************************************************************
+    block for content 
+*****************************************************************
+-->
+
+{% block content %}
+<div
+  class="page-content"
+  style="padding: calc(40px + 24px) calc(24px / 2) 60px calc(24px / 2)"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="d-sm-flex flex-wrap mb-4">
+        <h4 class="card-title mb-4">Event Category</h4>
+
+        <div class="ms-auto">
+          <!-- Add  modal Button -->
+          <button
+            type="button"
+            class="btn btn-primary waves-effect waves-light"
+            data-bs-toggle="modal"
+            data-bs-target="#eventModal"
+          >
+            Add Event Category
+          </button>
+
+          <div
+            class="modal fade"
+            id="eventModal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Add Event Category
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form class="custom-validation" id="form-id" name="form-id" action="#" data-parsley-validate>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mb-3">
+                                
+                                <input type="text" class="form-control" id="event-category" name="event-category"
+                                    placeholder="Type new event category..." data-parsley-required="true" required >
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+
+
+      <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Event Category List</h4>
+                    <!-- <p class="card-title-desc">DataTables has most features enabled by
+                        default, so all you need to do to use it with your own tables is to call
+                        the construction function: <code>$().DataTable();</code>.
+                    </p> -->
+
+                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                        <thead>
+                        <tr >
+                            <th width="70%">Name</th>
+                            <th width="30%">Action</th>
+                         
+                        </tr>
+                        </thead>
+
+
+                        <tbody>
+                          <tr>
+                          <td>Michael Bruce</td>
+                          <td>Javascript Developer</td>
+                         
+                      </tr>
+                      <tr>
+                          <td>Donna Snider</td>
+                          <td>Customer Support</td>
+                        
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div> <!-- end col -->
+  </div>
+    </div>
+    <!-- container-fluid -->
+  </div>
+</div>
+{% endblock content %}
+
+<!-- 
+*****************************************************************
+    block for skote plugins
+*****************************************************************
+-->
+{% block script %}
+<!-- select 2 -->
+<script src="{% static 'assets' %}/libs/select2/js/select2.min.js"></script>
+<!-- parsley -->
+<script src="{% static 'assets' %}/libs/parsleyjs/parsley.min.js"></script>
+
+<!-- Required datatable js -->
+<script src="{% static 'assets' %}/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- Buttons examples -->
+<script src="{% static 'assets' %}/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="{% static 'assets' %}/libs/jszip/jszip.min.js"></script>
+<script src="{% static 'assets' %}/libs/pdfmake/build/pdfmake.min.js"></script>
+<script src="{% static 'assets' %}/libs/pdfmake/build/vfs_fonts.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="{% static 'assets' %}/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{% static 'assets' %}/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<!-- Datatable init js -->
+<script src="{% static 'assets' %}/js/pages/datatables.init.js"></script>    
+{% endblock script %}
+
+
+<!-- 
+*****************************************************************
+    block for custom js scripts
+*****************************************************************
+-->
+{% block custom_script %}
+
+<script src="{% static 'assets' %}/js/user_admin/event/event_types.js"></script>
+
+
+
+
+{% endblock custom_script %}

@@ -20,5 +20,5 @@ urlpatterns = [
     path('', include('home_page.urls')),
     path('admin/', admin.site.urls),
     path('login/', include('login.urls')),
-    path('user_admin/', include('user_admin.urls')),
+    path('user_admin/', include('user_admin.__init__')),
 ]

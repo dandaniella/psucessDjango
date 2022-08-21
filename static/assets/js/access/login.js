@@ -60,13 +60,13 @@ $(function () {
 
           let session_data = "";
           session_data += "token=" + response.data.access_token;
-          session_data += "&message=" + "daniella";
-          // session_data += "&user_name=" + data.data.user_name;
-          // session_data += "&user_email=" + data.data.user_email;
+          // session_data += "&firstName=" + data.data.user_name;
+          // session_data += "&fullName=" + data.data.user_email;
+          // session_data += "&middleName=" + data.data.user_email;
           // session_data += "&user_type=" + data.data.user_type;
           // window.location.replace(baseURL + "Access/oAuth?" + session_data);
           console.log(session_data);
-          window.location.replace(baseURL + "login/test?" + session_data);
+          // window.location.replace(baseURL + "login/test?" + session_data);
         })
         .catch(function (error) {
           console.log(error);

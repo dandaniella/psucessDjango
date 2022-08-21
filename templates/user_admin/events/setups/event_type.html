@@ -16,428 +16,61 @@
             data-bs-toggle="modal"
             data-bs-target="#eventModal"
           >
-            Schedule Event
+            Add Event Category
           </button>
 
           <div
             class="modal fade"
             id="eventModal"
-            tabindex="-1"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            aria-labelledby="exampleModalScrollableTitle"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalScrollableTitle">
-                    Schedule Event
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Add Event Category
                   </h5>
                   <button
                     type="button"
                     class="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
-                    onClick="return formReset('hide');"
                   ></button>
                 </div>
-                <div class="modal-body" style="background: #f2f2f2">
-                  <form
-                    class="form-horizontal form-id"
-                    id="emp-form"
-                    enctype="multipart/form-data"
-                  >
-                    <div class="modal-body">
-                      <!-- Cards Start here -->
+                <div class="modal-body">
+                  <form class="custom-validation" id="form-id" name="form-id" action="#" data-parsley-validate>
 
-                      <div
-                        class="card overflow-hidden form-id"
-                        id="edit_information"
-                      >
-                        <div class="card-body pt-0">
-                          <div class="p-2">
-                            <input
-                              type="hidden"
-                              name="uuid"
-                              id="uuid"
-                              value=" "
-                            />
-                            <div class="m-3"></div>
-                            <div class="col-12">
-                              <div
-                                class="page-title-box d-sm-flex align-items-center justify-content-between"
-                              >
-                                <h4 class="mb-sm-0 font-size-18">
-                                  Employee Information
-                                </h4>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <label
-                                  class="custom-file-label"
-                                  for="inputGroupFile03"
-                                  >Upload profile</label
-                                >
-                                <div class="col-md-12">
-                                  <div class="col-md-12">
-                                    <div class="mb-4">
-                                      <img
-                                        src="https://avatars.dicebear.com/api/bottts/smile.svg"
-                                        alt=""
-                                        class="rounded avatar-lg img-thumbnail"
-                                        style="object-fit: cover"
-                                        id="photo_path_placeholder"
-                                        name="photo_path_placeholder"
-                                      />
-                                    </div>
-                                  </div>
-
-                                  <div class="input-group mb-3 col-md-12">
-                                    <div class="custom-file col">
-                                      <input
-                                        type="file"
-                                        class="custom-file-input"
-                                        id="profile_pic"
-                                        name="profile_pic"
-                                        accept="image/*"
-                                        value=""
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col">
-                                <div class="mb-3">
-                                  <label for="user_name" class="form-label"
-                                    >Username</label
-                                  >
-                                  <input
-                                    type="text"
-                                    class="form-control"
-                                    id="user_name"
-                                    name="user_name"
-                                    placeholder="Enter first name"
-                                    data-parsley-required="true"
-                                    value=""
-                                  />
-                                </div>
-                                <div class="mb-3">
-                                  <label for="user_password" class="form-label">
-                                    Password</label
-                                  >
-                                  <input
-                                    type="text"
-                                    class="form-control"
-                                    id="user_password"
-                                    name="user_password"
-                                    value=""
-                                    placeholder="Enter middle name"
-                                    data-parsley-required="true"
-                                    type="password"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="mb-3 col-6">
-                                <label class="form-label">Employee Role</label>
-                                <select
-                                  class="form-control select2"
-                                  id="user_type"
-                                  name="user_type"
-                                  style="width: 100%"
-                                  data-parsley-required="true"
-                                  data-parsley-required-message="You must select at least one option."
-                                >
-                                  <option selected disabled value="">
-                                    choose
-                                  </option>
-                                  <option value="Admin">Admin</option>
-                                  <option value="Pawn Broker">
-                                    Pawn Broker
-                                  </option>
-                                  <option value="Manager">Manager</option>
-                                  <option value="Website">Website</option>
-                                </select>
-                              </div>
-                              <div class="mb-3 col-6">
-                                <label>Hired Date</label>
-                                <div class="input-group grid" id="em_hiredDate">
-                                  <div class="col-10">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="hiredate"
-                                      placeholder="M dd, yyyy"
-                                      value=""
-                                      data-date-format="M dd, yyyy"
-                                      data-date-container="#em_hiredDate"
-                                      data-provide="datepicker"
-                                      data-parsley-required="true"
-                                    />
-                                  </div>
-                                  <div class="col-2">
-                                    <span class="input-group-text"
-                                      ><i class="mdi mdi-calendar"></i
-                                    ></span>
-                                  </div>
-                                </div>
-                                <!-- input-group -->
-                              </div>
-                            </div>
-
-                            <div class="mb-5"></div>
-
-                            <!-- Personal information -->
-                            <hr style="border-top: 1px solid red" />
-                            <div class="col-12">
-                              <div
-                                class="page-title-box d-sm-flex align-items-center justify-content-between"
-                              >
-                                <h4 class="mb-sm-0 font-size-18">
-                                  Personal Information
-                                </h4>
-                              </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-md">
                             <div class="mb-3">
-                              <label for="em_firstName" class="form-label"
-                                >First name</label
-                              >
-                              <input
-                                value=""
-                                type="text"
-                                class="form-control"
-                                id="em_firstName"
-                                placeholder="Enter first name"
-                                data-parsley-required="true"
-                              />
+                                
+                                <input type="text" class="form-control" id="event-category" name="event-category"
+                                    placeholder="Type new event category..." data-parsley-required="true" required >
+                                
                             </div>
-                            <div class="mb-3">
-                              <label for="em_middleName" class="form-label"
-                                >Middle name</label
-                              >
-                              <input
-                                value=""
-                                type="text"
-                                class="form-control"
-                                id="em_middleName"
-                                placeholder="Enter middle name"
-                              />
-                            </div>
-                            <div class="mb-3">
-                              <label for="em_lastName" class="form-label"
-                                >Last name</label
-                              >
-                              <input
-                                value=""
-                                type="text"
-                                class="form-control"
-                                id="em_lastName"
-                                placeholder="Enter last name"
-                                data-parsley-required="true"
-                              />
-                            </div>
-
-                            <div class="row">
-                              <div class="col-6 mb-3">
-                                <label class="form-label">Sex</label>
-                                <select
-                                  class="form-control select2"
-                                  id="em_sex"
-                                  name="em_sex"
-                                  style="width: 100%"
-                                  data-parsley-required="true"
-                                  data-parsley-required-message="You must select at least one option."
-                                >
-                                  <option selected disabled value="">
-                                    choose
-                                  </option>
-                                  <option value="Male">Male</option>
-                                  <option value="Female">Female</option>
-                                </select>
-                                <!-- <label class="form-label">Province</label>
-                                                                        <select class="form-control select2" id="em_sex" name="em_sex" style="width: 100%;" data-parsley-required="true">
-
-                                                                        </select> -->
-                              </div>
-                              <div class="col-6 mb-3">
-                                <label>Birth date</label>
-                                <div class="input-group grid" id="em_birthDate">
-                                  <div class="col">
-                                    <input
-                                      value=""
-                                      type="text"
-                                      class="form-control"
-                                      id="bday"
-                                      placeholder="M dd, yyyy"
-                                      data-date-format="M dd, yyyy"
-                                      data-date-container="#em_birthDate"
-                                      data-provide="datepicker"
-                                      data-parsley-required="true"
-                                    />
-                                  </div>
-                                  <div>
-                                    <span class="input-group-text"
-                                      ><i class="mdi mdi-calendar"></i
-                                    ></span>
-                                  </div>
-                                </div>
-                                <!-- input-group -->
-                              </div>
-                            </div>
-
-                            <div class="mb-5"></div>
-
-                            <!-- contact information  -->
-
-                            <hr style="border-top: 1px solid red" />
-                            <div class="col-12">
-                              <div
-                                class="page-title-box d-sm-flex align-items-center justify-content-between"
-                              >
-                                <h4 class="mb-sm-0 font-size-18">
-                                  Contact Information
-                                </h4>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="mb-3 col-6">
-                                <!-- select -->
-                                <label for="em_contactNo" class="form-label">
-                                  Contact No.</label
-                                >
-                                <input type="text" value="" class="form-control
-                                input-mask" id="em_contactNo" placeholder="Enter
-                                contact no." data-parsley-required= true"
-                                parsley-type="digits"
-                                data-parsley-maxlength="14"
-                                data-parsley-required="true">
-                              </div>
-                              <div class="mb-3 col-6">
-                                <!-- select -->
-                                <label for="user_email" class="form-label">
-                                  email</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control input-mask"
-                                  id="user_email"
-                                  placeholder="Enter email"
-                                  data-inputmask="'alias': 'email'"
-                                  data-parsley-required="true"
-                                  parsley-type="email"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div class="row mb-4">
-                              <div class="mb-3 col-6">
-                                <label class="form-label">Province</label>
-                                <select
-                                  class="form-control select2"
-                                  id="province"
-                                  name="province"
-                                  style="width: 100%"
-                                  data-parsley-required="true"
-                                ></select>
-                              </div>
-                              <div class="mb-3 col-6">
-                                <label class="form-label">City</label>
-                                <select
-                                  class="form-control select2"
-                                  id="city"
-                                  name="city"
-                                  style="width: 100%"
-                                  data-parsley-required="true"
-                                ></select>
-                              </div>
-                            </div>
-
-                            <div class="row mb-3">
-                              <div class="mb-3 col-4">
-                                <!-- select -->
-                                <label for="em_houseNo" class="form-label"
-                                  >House no.</label
-                                >
-                                <input
-                                  value=""
-                                  type="text"
-                                  class="form-control"
-                                  id="em_houseNo"
-                                  placeholder="Enter House no."
-                                  data-parsley-required="true"
-                                  arsley-type="numeric"
-                                />
-                              </div>
-                              <div class="mb-3 col-4">
-                                <!-- select -->
-                                <label for="em_street" class="form-label">
-                                  Street / Barangay</label
-                                >
-                                <input
-                                  value=""
-                                  type="text"
-                                  class="form-control"
-                                  id="em_street"
-                                  placeholder="EnterStreet / Baranga"
-                                  data-parsley-required="true"
-                                />
-                              </div>
-                              <div class="mb-3 col-4">
-                                <!-- select -->
-                                <label for="em_zipcode" class="form-label"
-                                  >Zip code</label
-                                >
-                                <input
-                                  value=""
-                                  type="text"
-                                  class="form-control"
-                                  id="em_zipcode"
-                                  placeholder="Enter Zip code"
-                                  data-parsley-required="true"
-                                />
-                              </div>
-                            </div>
-
-                            <div class="mb-5"></div>
-
-                            <hr style="border-top: 1px solid red" />
-
-                            <!-- <div class="mt-3 d-grid"> -->
-                            <div class="modal-footer">
-                              <button
-                                type="button"
-                                class="btn btn-light"
-                                data-bs-dismiss="modal"
-                                onClick="return formReset('hide');"
-                              >
-                                Cancel
-                              </button>
-                              <button
-                                type="submit"
-                                class="btn btn-primary submit"
-                              >
-                                Submit
-                              </button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="modal-footer">
-                      <!-- <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-primary">Submit</button> -->
-                    </div>
-                  </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-light"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                </form>
                 </div>
-                <!-- /.modal-content -->
               </div>
-              <!-- /.modal-dialog -->
             </div>
-            <!-- /.modal -->
           </div>
         </div>
       </div>
@@ -499,5 +132,24 @@
     <!-- container-fluid -->
   </div>
 </div>
-
 {% endblock content %}
+
+<!-- skote plugins -->
+{% block script %}
+<!-- select 2 -->
+<script src="{% static 'assets' %}/libs/select2/js/select2.min.js"></script>
+<!-- parsley -->
+
+
+{% endblock script %}
+
+<!-- custom script -->
+{% block custom_script %}
+<script src="{% static 'assets' %}/libs/parsleyjs/parsley.min.js"></script>
+<script src="{% static 'assets' %}/libs/parsleyjs/parsley.min.js"></script>
+<script src="{% static 'assets' %}/js/user_admin/event/event_types.js"></script>
+
+
+
+
+{% endblock custom_script %}

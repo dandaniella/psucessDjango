@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="PSUCCESS" name="" />
     <meta content="PSUCCCESS" name="author" />
-    <!-- App favicon -->
 
     <!-- App favicon -->
     <link
@@ -15,30 +14,8 @@
       href="{% static 'assets' %}/images/psuccess/pssucess_logo/psuccess-logo.png"
     />
 
-    <!-- select 2 -->
-    <link
-      href="{% static 'assets' %}/libs/select2/css/select2.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    {% block headlinks %} {% endblock headlinks %}
 
-    <!-- date -->
-    <link
-      href="{% static 'assets' %}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'assets' %}/libs/@chenfengyuan/datepicker/datepicker.min.css"
-    />
-
-    <!-- Responsive datatable examples -->
-    <link
-      href="{% static 'assets' %}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <!-- Bootstrap Css -->
     <link
       href="{% static 'assets' %}/css/bootstrap.min.css"
@@ -56,18 +33,6 @@
     <link
       href="{% static 'assets' %}/css/app.min.css"
       id="app-style"
-      rel="stylesheet"
-      type="text/css"
-    />
-
-    <!-- DataTables -->
-    <link
-      href="{% static 'assets' %}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="{% static 'assets' %}/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -90,6 +55,7 @@
         <div class="page-content">
           <div class="container-fluid">
             <!-- create a body block-->
+            <!-- sa block dito natin i extend -->
             {% block content %} {% endblock content %}
           </div>
           <!-- container-fluid -->
@@ -108,16 +74,25 @@
     <script src=" {% static 'assets' %}/libs/simplebar/simplebar.min.js"></script>
     <script src=" {% static 'assets' %}/libs/node-waves/waves.min.js"></script>
 
-    <!-- select 2 -->
-    <script src="{% static 'assets' %}/libs/select2/js/select2.min.js"></script>
-    <!-- app js -->
+    <!-- 
+
+        Sa block script na ito extend yung ilalagay na script
+        pwede nyo ilagay yung block script sa loob ng html file nyo ito script from skote template
+    -->
+
+    {% block script %} {% endblock script %}
+
+    <!-- 
+      lagi dapat nasa baba muna yung app.js ng lahapy ng plugins
+     -->
     <script src=" {% static 'assets' %}/js/app.js"></script>
-    <script>
-      $(".select2").select2({
-        theme: "bootstrap4",
-        dropdownParent: $("#edit_information"),
-      });
-    </script>
-    <script src="{% static 'assets' %}/js/user_admin/event_types.js"></script>
+    <!-- 
+      
+      
+      sa custom_script dito nyo ilagay yung sariling gawang script for your own page 
+    
+    -->
+
+    {% block custom_script %} {% endblock custom_script %}
   </body>
 </html>
