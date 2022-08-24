@@ -48,7 +48,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- <div class="d-sm-flex flex-wrap mb-4">
-        <h4 class="card-title mb-4">Event Category</h4>
+        <h4 class="card-title mb-4">Event type</h4>
       </div> -->
       
 
@@ -58,21 +58,21 @@
             <div class="card-body">
               <div class="row">
                 <div class="d-sm-flex flex-wrap mb-4">
-                  <h4 class="card-title">Event Category List</h4>
+                  <h4 class="card-title">Event Tags List</h4>
                   <div class="ms-auto">
                     <!-- Add  modal Button -->
                     <button
                       type="button"
                       class="btn btn-primary waves-effect waves-light"
                       data-bs-toggle="modal"
-                      data-bs-target="#eventModal"
+                      data-bs-target="#tagModal"
                     >
-                      Add Event Category
+                      Add Event Tags
                     </button>
           
                     <div
                       class="modal fade"
-                      id="eventModal"
+                      id="tagModal"
                       data-bs-backdrop="static"
                       data-bs-keyboard="false"
                       tabindex="-1"
@@ -84,7 +84,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">
-                              Add Event Category 
+                              Add Event Tags 
                             </h5>
                             <button
                               type="button"
@@ -99,16 +99,16 @@
           
                               <div class="row">
                                   <div class="col-md"> 
-                                    <input type="hidden" class="uuid form-control submit" id="categoryID" name="categoryID"
-                                        placeholder="Type new event category..." data-parsley-required="true" >
+                                    <input type="hidden" class="form-control submit uuid" id="tagsID" name="tagsID"
+                                        placeholder="Tags new event type..." data-parsley-required="true" >
                                       <div class="mb-3">
-                                        <input type="text" class="form-control submit" id="category-name" name="category-name"
-                                              placeholder="Type new event category..." data-parsley-required="true" required >
+                                        <input type="text" class="form-control submit" id="tags-name" name="tags-name"
+                                              placeholder="Type new event type..." data-parsley-required="true" required >
                                       </div>
 
                                       <div class="mb-3">
-                                        <input type="text" class="form-control submit" id="category-description" name="category-description"
-                                        placeholder="Type new event category..." data-parsley-required="true" required >
+                                        <input type="text" class="form-control submit" id="tags-description" name="tags-description"
+                                        placeholder="Type new event type..." data-parsley-required="true" required >
                                       </div>  
                                   </div>
                               </div>
@@ -121,7 +121,7 @@
                                 onclick="formReset()">
                                 Close
                               </button>
-                              <button type="submit" id="submit" class="btn btn-primary">
+                              <button tags="submit" id="submit" class="btn btn-primary">
                                  Submit
                               </button>
                           </form>
@@ -141,7 +141,7 @@
                     </p> -->
 <!-- id="datatable" -->
               <table
-                id="category-table"
+                id="tags-table"
                 class="table table-bordered dt-responsive nowrap w-100"
               >
                 <thead>
@@ -221,7 +221,7 @@
 -->
 {% block custom_script %}
 <script src="{% static 'assets' %}/js/user_admin/event/common.js"></script>
-<script src="{% static 'assets' %}/js/user_admin/event/category.js"></script>
+<script src="{% static 'assets' %}/js/user_admin/event/tags.js"></script>
 <script src="./login/login.js"></script>
 <script>
   value = "{{ request.session.token }}";

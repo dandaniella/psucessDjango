@@ -57,6 +57,7 @@ $(function () {
       })
         .then(function (response) {
           console.log(response);
+          localStorage.setItem("TOKEN", response.data.access_token);
 
           let session_data = "";
           session_data += "token=" + response.data.access_token;
@@ -73,10 +74,14 @@ $(function () {
             "&userOrganizationID" + response.data.userOrganizationID;
 
           console.log(session_data);
+          //
+
           window.location.replace(baseURL + "login/auth?" + session_data);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log(error.data);
+          console.log(error.response.data.detail);
+          toastr.error("", error.response.data.detail);
         });
     }
   });

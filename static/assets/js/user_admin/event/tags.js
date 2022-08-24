@@ -1,23 +1,23 @@
 $(function () {
   //  *****************************************
-  //    evnt category form
+  //    evnt tags form
   //  *****************************************
 
   $("#form-id").on("submit", function (e) {
     e.preventDefault();
 
     if ($("#form-id").parsley().validate()) {
-      if ($("#categoryID").val() == "") {
+      if ($("#tagsID").val() == "") {
         axios({
           method: "post",
-          url: apiURL + "event_category",
+          url: apiURL + "event_tag",
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#tags-name").val(),
+            description: $("#tags-description").val(),
           },
         })
           .then(function (response) {
@@ -30,19 +30,19 @@ $(function () {
       } else {
         axios({
           method: "PUT",
-          url: apiURL + "event_category/" + $("#categoryID").val(),
+          url: apiURL + "event_tag/" + $("#tagsID").val(),
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#tags-name").val(),
+            description: $("#tags-description").val(),
           },
         })
           .then(function (response) {
             formReset();
-            $(".modal-title").text("Edit Event Category");
+            $(".modal-title").text("Edit Event tags");
             loadTable();
           })
           .catch(function (error) {
@@ -67,7 +67,7 @@ $(function () {
   //     { "data": "Parent" },
   //     {
   //         "mData": "Name",
-  //         "mRender": function (data, type, row) {
+  //         "mRender": function (data, tags, row) {
   //             return "<a href='Admin/Categories/Edit/" + data + "'>EDIT</a>";
   //         }
   //     }
@@ -80,7 +80,7 @@ $(function () {
 
     axios({
       method: "GET",
-      url: apiURL + "event_category/" + id,
+      url: apiURL + "event_tag/" + id,
       headers: {
         Accept: "application/json",
         Authorization: "Bearer " + token,
@@ -89,12 +89,12 @@ $(function () {
     })
       .then((getResponse) => {
         formReset();
-        $("#eventModal").modal("show");
-        $(".modal-title").text("Edit Event Category");
+        $("#tagModal").modal("show");
+        $(".modal-title").text("Edit Event tags");
 
-        $("#category-name").val(getResponse.data.name),
-          $("#category-description").val(getResponse.data.description),
-          $("#categoryID").val(getResponse.data.categoryID);
+        $("#tags-name").val(getResponse.data.name),
+          $("#tags-description").val(getResponse.data.description),
+          $("#tagsID").val(getResponse.data.tagID);
       })
       .catch(function (error) {
         console.log(error);
@@ -114,7 +114,7 @@ $(function () {
       if (t.value == true) {
         axios({
           method: "DELETE",
-          url: apiURL + "event_category/" + id,
+          url: apiURL + "event_tag/" + id,
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
@@ -132,14 +132,14 @@ $(function () {
   };
 
   loadTable = () => {
-    $("#category-table").dataTable().fnClearTable();
-    $("#category-table").dataTable().fnDraw();
-    $("#category-table").dataTable().fnDestroy();
-    $("#category-table").DataTable({
-      ajax: apiURL + "event_category/table",
+    $("#tags-table").dataTable().fnClearTable();
+    $("#tags-table").dataTable().fnDraw();
+    $("#tags-table").dataTable().fnDestroy();
+    $("#tags-table").DataTable({
+      ajax: apiURL + "event_tag/table",
 
       columns: [
-        { data: "name", title: "Category Title" },
+        { data: "name", title: "Title" },
         { data: "description", title: "Description" },
         {
           data: null,
@@ -153,13 +153,13 @@ $(function () {
             // <i class="bx bx-edit-alt"></i></button>`;
             btn +=
               `<button type="button" class="btn btn-outline-success btn-sm " onClick="return editData(\'` +
-              data.categoryID +
+              data.tagID +
               `\',0)"><i class="bx bx-edit-alt"></i></button>	`;
             btn +=
               `<button type="button" class="btn btn-outline-danger btn-sm " onClick="return deleteData(\'` +
-              data.categoryID +
+              data.tagID +
               `\',0)"><i class="bx bx-trash"></i></button>	`;
-            // return '<div class="btn-group"> <button type="button" class="btn btn-light" >Memo</button></div>';
+            // return '<div class="btn-group"> <button tags="button" class="btn btn-light" >Memo</button></div>';
 
             return btn;
           },

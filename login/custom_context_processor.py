@@ -13,7 +13,8 @@ def sessions_data(request):
         "fullName": request.session['USERID'] ,
         "accountType": request.session['ACCOUNTTYPE'] ,
         "profilePhoto": request.session['PROFILEPHOTO'] ,
-        "transactionID": request.session['TRANSACTIONID'] ,
+        # "transactionID": request.session['TRANSACTIONID'] ,
+        "transactionID": "05555",
         "userOrganizationID": request.session['USERORGANIZATIONID'] ,
         }
         return(session)

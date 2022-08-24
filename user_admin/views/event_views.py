@@ -35,22 +35,34 @@ def dashboard(request):
     return render(request, 'user_admin/dashboard.html')
 
 def events(request):
-    if token(request):
+    if isAuth(request):
         return render(request, 'user_admin/events.html')
     else:
         return HttpResponse("UNAUTHORIZE ACCESS ")
 
 
 def events_type(request):
-    print("hellollllll")
     if isAuth(request) :
-        return render(request, 'user_admin/events.html')
+        return render(request, 'user_admin/events/setups/type.html')
     else:
-        return HttpResponse("UNAUTHORIZE ACCESS ")
-    # else:
-    #     return render(request, 'user_admin/events/setups/event_type.html')
+         return redirect( '/login/')
+
+def events_subcategory(request):
+    if isAuth(request) :
+        return render(request, 'user_admin/events/setups/sub_category.html')
+    else:
+         return redirect( '/login/')
+
+
+
+def events_tags(request):
+    if isAuth(request) :
+        return render(request, 'user_admin/events/setups/tags.html')
+    else:
+        return redirect( '/login/')
 
 
 # EVENT CATEGORY
 def event_category(request):
+    print(request)
     return render(request, 'user_admin/events/setups/category.html')

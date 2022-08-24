@@ -1,23 +1,23 @@
 $(function () {
   //  *****************************************
-  //    evnt category form
+  //    evnt type form
   //  *****************************************
 
   $("#form-id").on("submit", function (e) {
     e.preventDefault();
 
     if ($("#form-id").parsley().validate()) {
-      if ($("#categoryID").val() == "") {
+      if ($("#typeID").val() == "") {
         axios({
           method: "post",
-          url: apiURL + "event_category",
+          url: apiURL + "event_type",
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#type-name").val(),
+            description: $("#type-description").val(),
           },
         })
           .then(function (response) {
@@ -30,19 +30,19 @@ $(function () {
       } else {
         axios({
           method: "PUT",
-          url: apiURL + "event_category/" + $("#categoryID").val(),
+          url: apiURL + "event_type/" + $("#typeID").val(),
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#type-name").val(),
+            description: $("#type-description").val(),
           },
         })
           .then(function (response) {
             formReset();
-            $(".modal-title").text("Edit Event Category");
+            $(".modal-title").text("Edit Event type");
             loadTable();
           })
           .catch(function (error) {
@@ -80,7 +80,7 @@ $(function () {
 
     axios({
       method: "GET",
-      url: apiURL + "event_category/" + id,
+      url: apiURL + "event_type/" + id,
       headers: {
         Accept: "application/json",
         Authorization: "Bearer " + token,
@@ -89,12 +89,12 @@ $(function () {
     })
       .then((getResponse) => {
         formReset();
-        $("#eventModal").modal("show");
-        $(".modal-title").text("Edit Event Category");
+        $("#typeModal").modal("show");
+        $(".modal-title").text("Edit Event type");
 
-        $("#category-name").val(getResponse.data.name),
-          $("#category-description").val(getResponse.data.description),
-          $("#categoryID").val(getResponse.data.categoryID);
+        $("#type-name").val(getResponse.data.name),
+          $("#type-description").val(getResponse.data.description),
+          $("#typeID").val(getResponse.data.typeID);
       })
       .catch(function (error) {
         console.log(error);
@@ -114,7 +114,7 @@ $(function () {
       if (t.value == true) {
         axios({
           method: "DELETE",
-          url: apiURL + "event_category/" + id,
+          url: apiURL + "event_type/" + id,
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
@@ -132,14 +132,14 @@ $(function () {
   };
 
   loadTable = () => {
-    $("#category-table").dataTable().fnClearTable();
-    $("#category-table").dataTable().fnDraw();
-    $("#category-table").dataTable().fnDestroy();
-    $("#category-table").DataTable({
-      ajax: apiURL + "event_category/table",
+    $("#type-table").dataTable().fnClearTable();
+    $("#type-table").dataTable().fnDraw();
+    $("#type-table").dataTable().fnDestroy();
+    $("#type-table").DataTable({
+      ajax: apiURL + "event_type/table",
 
       columns: [
-        { data: "name", title: "Category Title" },
+        { data: "name", title: "type Title" },
         { data: "description", title: "Description" },
         {
           data: null,
@@ -153,11 +153,11 @@ $(function () {
             // <i class="bx bx-edit-alt"></i></button>`;
             btn +=
               `<button type="button" class="btn btn-outline-success btn-sm " onClick="return editData(\'` +
-              data.categoryID +
+              data.typeID +
               `\',0)"><i class="bx bx-edit-alt"></i></button>	`;
             btn +=
               `<button type="button" class="btn btn-outline-danger btn-sm " onClick="return deleteData(\'` +
-              data.categoryID +
+              data.typeID +
               `\',0)"><i class="bx bx-trash"></i></button>	`;
             // return '<div class="btn-group"> <button type="button" class="btn btn-light" >Memo</button></div>';
 

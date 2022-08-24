@@ -53,10 +53,10 @@ $(function () {
   });
 
   // // Select 2
-  // $(".select2").select2({
-  //   theme: "bootstrap4",
-  //   dropdownParent: $("#edit_information"),
-  // });
+  $(".select2").select2({
+    theme: "bootstrap4",
+    dropdownParent: $("#subcatModal"),
+  });
 
   //
   // profile sample lang
@@ -171,6 +171,29 @@ $(function () {
   };
 
   loadTable();
+
+  loadCategory = () => {
+    axios({
+      method: "GET",
+      url: apiURL + "event_category",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
+    })
+      .then(function (response) {
+        // console.log(response.data);
+        data = response.data;
+        for (i in data) {
+          console.log(data.categoryID);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  loadCategory();
 
   $("#profile_pic").change(function () {
     readURL(this);
