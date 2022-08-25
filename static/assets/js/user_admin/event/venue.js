@@ -7,17 +7,17 @@ $(function () {
     e.preventDefault();
 
     if ($("#form-id").parsley().validate()) {
-      if ($("#typeID").val() == "") {
+      if ($("#venueID").val() == "") {
         axios({
           method: "post",
-          url: apiURL + "event_type",
+          url: apiURL + "event_venue",
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#type-name").val(),
-            description: $("#type-description").val(),
+            name: $("#venue-name").val(),
+            description: $("#venue-description").val(),
           },
         })
           .then(function (response) {
@@ -30,19 +30,19 @@ $(function () {
       } else {
         axios({
           method: "PUT",
-          url: apiURL + "event_type/" + $("#typeID").val(),
+          url: apiURL + "event_venue/" + $("#venueID").val(),
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#type-name").val(),
-            description: $("#type-description").val(),
+            name: $("#venue-name").val(),
+            description: $("#venue-description").val(),
           },
         })
           .then(function (response) {
             formReset();
-            $(".modal-title").text("Edit Event type");
+            $(".modal-title").text("Edit Event Venue");
             loadTable();
           })
           .catch(function (error) {
@@ -80,7 +80,7 @@ $(function () {
 
     axios({
       method: "GET",
-      url: apiURL + "event_type/" + id,
+      url: apiURL + "event_venue/" + id,
       headers: {
         Accept: "application/json",
         Authorization: "Bearer " + token,
@@ -90,11 +90,11 @@ $(function () {
       .then((getResponse) => {
         formReset();
         $("#typeModal").modal("show");
-        $(".modal-title").text("Edit Event type");
+        $(".modal-title").text("Edit Event Venue");
 
-        $("#type-name").val(getResponse.data.name),
-          $("#type-description").val(getResponse.data.description),
-          $("#typeID").val(getResponse.data.typeID);
+        $("#venue-name").val(getResponse.data.name),
+          $("#venue-description").val(getResponse.data.description),
+          $("#venueID").val(getResponse.data.venueID);
       })
       .catch(function (error) {
         console.log(error);
@@ -114,7 +114,7 @@ $(function () {
       if (t.value == true) {
         axios({
           method: "DELETE",
-          url: apiURL + "event_type/" + id,
+          url: apiURL + "event_venue/" + id,
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
@@ -132,14 +132,14 @@ $(function () {
   };
 
   loadTable = () => {
-    $("#type-table").dataTable().fnClearTable();
-    $("#type-table").dataTable().fnDraw();
-    $("#type-table").dataTable().fnDestroy();
-    $("#type-table").DataTable({
-      ajax: apiURL + "event_type/table",
+    $("#venue-table").dataTable().fnClearTable();
+    $("#venue-table").dataTable().fnDraw();
+    $("#venue-table").dataTable().fnDestroy();
+    $("#venue-table").DataTable({
+      ajax: apiURL + "event_venue/table",
 
       columns: [
-        { data: "name", title: "Title" },
+        { data: "name", title: "type Title" },
         { data: "description", title: "Description" },
         {
           data: null,
@@ -153,11 +153,11 @@ $(function () {
             // <i class="bx bx-edit-alt"></i></button>`;
             btn +=
               `<button type="button" class="btn btn-outline-success btn-sm " onClick="return editData(\'` +
-              data.typeID +
+              data.venueID +
               `\',0)"><i class="bx bx-edit-alt"></i></button>	`;
             btn +=
               `<button type="button" class="btn btn-outline-danger btn-sm " onClick="return deleteData(\'` +
-              data.typeID +
+              data.venueID +
               `\',0)"><i class="bx bx-trash"></i></button>	`;
             // return '<div class="btn-group"> <button type="button" class="btn btn-light" >Memo</button></div>';
 

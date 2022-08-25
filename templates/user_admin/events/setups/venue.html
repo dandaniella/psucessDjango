@@ -7,9 +7,6 @@
 -->
 {% block headlinks %}
 
-<!-- Select 2 -->
-<link href="{% static 'assets' %}/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-
 <!-- DataTables -->
 <link
   href="{% static 'assets' %}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
@@ -35,14 +32,6 @@
   type="text/css"
 />
 
-<style>
-  td {
-  text-align: center;
-}
-th {
-  text-align: center;
-}
-</style>
 {% endblock headlinks %}
 
 <!-- 
@@ -69,21 +58,21 @@ th {
             <div class="card-body">
               <div class="row">
                 <div class="d-sm-flex flex-wrap mb-4">
-                  <h4 class="card-title">Event Subcategory  List</h4>
+                  <h4 class="card-title">Event Type List</h4>
                   <div class="ms-auto">
                     <!-- Add  modal Button -->
                     <button
                       type="button"
                       class="btn btn-primary waves-effect waves-light"
                       data-bs-toggle="modal"
-                      data-bs-target="#subcatModal"
+                      data-bs-target="#typeModal"
                     >
-                    Add Event Subcategory
+                      Add Event Venue
                     </button>
           
                     <div
                       class="modal fade"
-                      id="subcatModal"
+                      id="typeModal"
                       data-bs-backdrop="static"
                       data-bs-keyboard="false"
                       tabindex="-1"
@@ -95,7 +84,7 @@ th {
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">
-                              Add Event Subcategory 
+                              Add Event Venue 
                             </h5>
                             <button
                               type="button"
@@ -110,32 +99,16 @@ th {
           
                               <div class="row">
                                   <div class="col-md"> 
-                                    
-                                      <input type="hidden" class="uuid form-control submit" id="subcategoryID" name="subcategoryID"
+                                    <input type="hidden" class="uuid form-control submit" id="venueID" name="venueID"
                                         placeholder="Type new event type..." data-parsley-required="true" >
-
                                       <div class="mb-3">
-                                        <div>
-                                          <label class="form-label">Category</label>
-                                        </div>
-                                        <div>
-                                          <select class="form-control select2 " id="select_categoryID" style="width:100%;"> 
-                                              <option>Select</option>
-                                             
-                                          </select>
-                                        </div>
-                                                        
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="">Subcategory name</label>
-                                        <input type="text" class="form-control submit" id="subcat-name" name="subcat-name"
-                                              placeholder="Type name  ..." data-parsley-required="true" required >
+                                        <input type="text" class="form-control submit" id="venue-name" name="venue-name"
+                                              placeholder="Type new event type..." data-parsley-required="true" required >
                                       </div>
 
                                       <div class="mb-3">
-                                        <label for="">Subcategory Description</label>
-                                        <input type="text" class="form-control submit" id="subcat-description" name="subcat-description"
-                                        placeholder="Type description..." data-parsley-required="true" required >
+                                        <input type="text" class="form-control submit" id="venue-description" name="venue-description"
+                                        placeholder="Type new event type..." data-parsley-required="true" required >
                                       </div>  
                                   </div>
                               </div>
@@ -159,7 +132,6 @@ th {
                     
                   </div>
                 </div>
-
                 
               </div>
 
@@ -169,15 +141,14 @@ th {
                     </p> -->
 <!-- id="datatable" -->
               <table
-                id="subcategory-table"
+                id="venue-table"
                 class="table table-bordered dt-responsive nowrap w-100"
               >
                 <thead>
                   <tr>
-                    <th width="30%">Name</th>
-                    <th width="30%">Name</th>
-                    <th width="30%">Name</th>
-                    <th width="10%">Action</th>
+                    <th width="40%">Name</th>
+                    <th width="40%">Name</th>
+                    <th width="20%">Action</th>
                   </tr>
                 </thead>
 
@@ -250,7 +221,7 @@ th {
 -->
 {% block custom_script %}
 <script src="{% static 'assets' %}/js/user_admin/event/common.js"></script>
-<script src="{% static 'assets' %}/js/user_admin/event/sub_category.js"></script>
+<script src="{% static 'assets' %}/js/user_admin/event/venue.js"></script>
 <script src="./login/login.js"></script>
 <script>
   value = "{{ request.session.token }}";

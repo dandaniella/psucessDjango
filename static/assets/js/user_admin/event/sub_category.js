@@ -7,17 +7,18 @@ $(function () {
     e.preventDefault();
 
     if ($("#form-id").parsley().validate()) {
-      if ($("#categoryID").val() == "") {
+      if ($("#subcategoryID").val() == "") {
         axios({
           method: "post",
-          url: apiURL + "event_category",
+          url: apiURL + "event_subcategory",
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#subcat-name").val(),
+            categoryID: $("#select_categoryID").val(),
+            description: $("#subcat-description").val(),
           },
         })
           .then(function (response) {
@@ -28,21 +29,24 @@ $(function () {
             console.log(error);
           });
       } else {
+        var categoryid = $("#select_categoryID").val();
+        console.log($("#select_categoryID").val());
         axios({
           method: "PUT",
-          url: apiURL + "event_category/" + $("#categoryID").val(),
+          url: apiURL + "event_subcategory/" + $("#subcategoryID").val(),
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
           },
           data: {
-            name: $("#category-name").val(),
-            description: $("#category-description").val(),
+            name: $("#subcat-name").val(),
+            categoryID: categoryid,
+            description: $("#subcat-description").val(),
           },
         })
           .then(function (response) {
             formReset();
-            $(".modal-title").text("Edit Event Category");
+            $(".modal-title").text("Edit Event Subcategory");
             loadTable();
           })
           .catch(function (error) {
@@ -54,8 +58,8 @@ $(function () {
 
   // // Select 2
   $(".select2").select2({
-    theme: "bootstrap4",
     dropdownParent: $("#subcatModal"),
+    placeholder: "Select a category ",
   });
 
   //
@@ -75,12 +79,9 @@ $(function () {
   // });
 
   editData = (id, num) => {
-    // $("#eventModal").modal("show");
-    // $(".modal-title").text("Edit Event Category");
-
     axios({
       method: "GET",
-      url: apiURL + "event_category/" + id,
+      url: apiURL + "event_subcategory/" + id,
       headers: {
         Accept: "application/json",
         Authorization: "Bearer " + token,
@@ -89,12 +90,16 @@ $(function () {
     })
       .then((getResponse) => {
         formReset();
-        $("#eventModal").modal("show");
-        $(".modal-title").text("Edit Event Category");
+        console.log(getResponse);
+        $("#subcatModal").modal("show");
+        $(".modal-title").text("Edit Event Subcategory");
 
-        $("#category-name").val(getResponse.data.name),
-          $("#category-description").val(getResponse.data.description),
-          $("#categoryID").val(getResponse.data.categoryID);
+        $("#subcat-name").val(getResponse.data.name),
+          $("#subcat-description").val(getResponse.data.description),
+          $("#subcategoryID").val(getResponse.data.subcategoryID);
+        $("#select_categoryID")
+          .val(getResponse.data.category.categoryID)
+          .trigger("change");
       })
       .catch(function (error) {
         console.log(error);
@@ -114,7 +119,7 @@ $(function () {
       if (t.value == true) {
         axios({
           method: "DELETE",
-          url: apiURL + "event_category/" + id,
+          url: apiURL + "event_subcategory/" + id,
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + token,
@@ -132,14 +137,15 @@ $(function () {
   };
 
   loadTable = () => {
-    $("#category-table").dataTable().fnClearTable();
-    $("#category-table").dataTable().fnDraw();
-    $("#category-table").dataTable().fnDestroy();
-    $("#category-table").DataTable({
-      ajax: apiURL + "event_category/table",
+    $("#subcategory-table").dataTable().fnClearTable();
+    $("#subcategory-table").dataTable().fnDraw();
+    $("#subcategory-table").dataTable().fnDestroy();
+    $("#subcategory-table").DataTable({
+      ajax: apiURL + "event_subcategory/table",
 
       columns: [
-        { data: "name", title: "Category Title" },
+        { data: "name", title: "Title" },
+        { data: "category.name", title: "Category Title" },
         { data: "description", title: "Description" },
         {
           data: null,
@@ -153,11 +159,11 @@ $(function () {
             // <i class="bx bx-edit-alt"></i></button>`;
             btn +=
               `<button type="button" class="btn btn-outline-success btn-sm " onClick="return editData(\'` +
-              data.categoryID +
+              data.subcategoryID +
               `\',0)"><i class="bx bx-edit-alt"></i></button>	`;
             btn +=
               `<button type="button" class="btn btn-outline-danger btn-sm " onClick="return deleteData(\'` +
-              data.categoryID +
+              data.subcategoryID +
               `\',0)"><i class="bx bx-trash"></i></button>	`;
             // return '<div class="btn-group"> <button type="button" class="btn btn-light" >Memo</button></div>';
 
@@ -183,10 +189,17 @@ $(function () {
     })
       .then(function (response) {
         // console.log(response.data);
-        data = response.data;
-        for (i in data) {
-          console.log(data.categoryID);
-        }
+        $.each(response.data, function (i, dataOptions) {
+          var options = "";
+          options =
+            ` <option value="` +
+            dataOptions.categoryID +
+            `">` +
+            dataOptions.name +
+            `</option>`;
+
+          $("#select_categoryID").append(options);
+        });
       })
       .catch(function (error) {
         console.log(error);

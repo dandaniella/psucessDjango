@@ -8,6 +8,7 @@ const notification = (type, title, message) => {
 
 const token = localStorage.getItem("TOKEN");
 let button = document.querySelector(".submit");
+let modalTitle = $(".modal-title").text();
 // let isDelete = false;
 
 //form reset
@@ -34,9 +35,10 @@ swalAlert = (title, text, icon) => {
 };
 
 formReset = () => {
+  $("#select_categoryID").val("").trigger("change");
   $(".uuid").val("");
   $(".form-id")[0].reset();
-  $(".modal-title").text("Add Event Category");
+  $(".modal-title").text(modalTitle);
 };
 
 axios.interceptors.request.use(

@@ -139,7 +139,7 @@ $(function () {
       ajax: apiURL + "event_category/table",
 
       columns: [
-        { data: "name", title: "Category Title" },
+        { data: "name", title: "Title" },
         { data: "description", title: "Description" },
         {
           data: null,

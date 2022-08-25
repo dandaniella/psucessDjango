@@ -53,6 +53,11 @@ def events_subcategory(request):
     else:
          return redirect( '/login/')
 
+def events_venue(request):
+    if isAuth(request) :
+        return render(request, 'user_admin/events/setups/venue.html') 
+    else:
+         return redirect( '/login/')
 
 
 def events_tags(request):
